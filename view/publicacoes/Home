@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Soul Tech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Tecnologia sem fronteira</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Notícias</a>
+      <a href="#">Tutoriais</a>
+      <a href="#">Blog</a>
+    </nav>
+  </header>
+  <main>
+    <section class="noticia">
+      <h2>O futuro da inteligência artificial</h2>
+      <img src="https://d31ezp3r8jwmks.cloudfront.net/tre02259glhm3req3jl75syricp6" alt="IA">
+      <p>A inteligência artificial (IA) é uma área da computação que se concentra na criação de agentes inteligentes, que são sistemas que podem raciocinar, aprender e agir de forma independente.</p>
+      <p>A IA tem o potencial de revolucionar muitas áreas da nossa vida, desde a forma como trabalhamos até a forma como nos relacionamos.</p>
+      <p>No futuro, a IA pode ser usada para automatizar tarefas, melhorar a eficiência e até mesmo criar novas formas de arte e entretenimento.</p>
+    </section>
+    <section class="tutorial">
+      <h2>Como criar um site com HTML</h2>
+      <img src="https://th.bing.com/th/id/OIP.KDmaLuTWB86uxBfIQGGaRQHaEK?pid=ImgDet&rs=1" alt="HTML">
+      <p>HTML é a linguagem de marcação usada para criar páginas web. É uma linguagem simples e fácil de aprender, que permite criar páginas web básicas.</p>
+      <p>Para criar um site com HTML, você precisará de um editor de texto e de um servidor web.</p>
+      <p>Você pode encontrar muitos tutoriais online que ensinam como criar um site com HTML.</p>
+    </section>
+    <section class="blog">
+      <h2>As últimas notícias de tecnologia</h2>
+      <ul>
+        <li>
+          <a href="https://www.apple.com/br">Apple anuncia novos iPhones</a>
+        </li>
+        <li>
+          <a href="https://www.google.com.br/">Google lança novo sistema operacional</a>
+        </li>
+        <li>
+          <a href="https://www.adrenaline.com.br/">Amazon lança novo serviço de streaming de jogos</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Talento Cloud- Grupo 5</p>
+  </footer>
+</body>
+</html>
