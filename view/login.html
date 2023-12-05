@@ -5,40 +5,64 @@
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
 	<body>
-		<div class="container">
-			<div class="half left">
-				<h2>Login</h2>
-				<form action="processar_login.php" method="post">
-					<label for="loginUsername">Usuário:</label>
-					<input type="text" id="loginUsername" name="loginUsername" required />
-
-					<label for="loginPassword">Senha:</label>
-					<input type="password" id="loginPassword" name="loginPassword" required />
-
-					<button type="submit">Entrar</button>
-				</form>
-			</div>
-			<div class="half right">
-				<h2>Cadastro</h2>
-				<form action="processar_cadastro.php" method="post">
-					<label for="name">Nome:</label>
-					<input type="text" id="name" name="name" required />
-
-					<label for="email">Email:</label>
-					<input type="email" id="email" name="email" required />
-
-					<label for="signinUsername">Usuário:</label>
-					<input type="text" id="signinUsername" name="signinUsername" required />
-
-					<label for="signinPassword">Senha:</label>
-					<input type="password" id="signinPassword" name="signinPassword" required />
-
-					<label for="confirmPassword">Repetir Senha:</label>
-					<input type="password" id="confirmPassword" name="confirmPassword" required />
-
-					<button type="submit">Cadastrar</button>
-				</form>
-			</div>
+		<header>
+			<img src="../../assets/img/soultech_all.png" alt="Logotipo da SoulTech">
+			
+			<nav>
+				<a href="home.html">Home</a>
+				<a href="publicacoes/noticias.html">Notícias</a>
+				<a href="publicacoes/tutoriais.html">Tutoriais</a>
+				<a href="publicacoes/artigos.html">Artigos</a>
+				<a href="criar-publicacao.html">Escreva</a>
+				<a href="quem-somos.html">Quem Somos?</a>
+			</nav>
+		
+			<a href="login.html">Cadastro / Login</a>
 		</div>
+		</header>
+		<main>
+			<div class="container">
+				<div id="login">
+					<h2>Login</h2>
+					<form>
+						<div class="form-group">
+							<label for="loginEmail">E-mail</label>
+							<input type="email" class="form-control" id="loginEmail" placeholder="Seu e-mail">
+						</div>
+						<div class="form-group">
+							<label for="loginPassword">Senha</label>
+							<input type="password" class="form-control" id="loginPassword" placeholder="Sua senha">
+						</div>
+						<button type="submit" class="btn btn-primary">Login</button>
+					</form>
+				</div>
+				<div id="cadastro">
+					<h2>Cadastro</h2>
+					<form>
+						<div class="form-group">
+							<label for="nomeCompleto">Nome Completo</label>
+							<input type="text" class="form-control" id="nomeCompleto" placeholder="Seu nome completo">
+						</div>
+						<div class="form-group">
+							<label for="cadastroEmail">E-mail</label>
+							<input type="email" class="form-control" id="cadastroEmail" placeholder="Seu e-mail">
+						</div>
+						<div class="form-group">
+							<label for="cadastroPassword">Senha</label>
+							<input type="password" class="form-control" id="cadastroPassword" placeholder="Sua senha">
+						</div>
+						<div class="form-group">
+							<label for="confirmacaoSenha">Confirmar Senha</label>
+							<input type="password" class="form-control" id="confirmacaoSenha" placeholder="Confirme sua senha">
+						</div>
+						<button type="submit" class="btn btn-primary">Cadastrar</button>
+					</form>
+				</div>
+			</div>
+		</main>
+			
+		<footer>
+			<p>Talento Cloud- Grupo 5</p>
+		</footer>
 	</body>
 </html>
