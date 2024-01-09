@@ -3,9 +3,11 @@
 	<head>
 		<title>Login / Cadastro</title>
 		<link rel="stylesheet" href="../assets/styles/styles.css">
+		<link rel="stylesheet" href="../assets/styles/modal.css">
 	</head>
 	<body>
 		<header>
+			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 			<script src="../assets/scripts/login.js"></script>
 			<img src="../assets/img/soultech_all.png" alt="Logotipo da SoulTech">
 			
@@ -28,7 +30,7 @@
 				</div>
 				<div id="login" style="display: none;">
 					<h2>Login</h2>
-					<form>
+					<form action="#" method="post" id="formLogin">
 						<div class="form-group">
 							<label for="loginEmail">E-mail</label>
 							<input type="email" class="form-control" id="loginEmail" placeholder="Seu e-mail">
@@ -37,12 +39,12 @@
 							<label for="loginPassword">Senha</label>
 							<input type="password" class="form-control" id="loginPassword" placeholder="Sua senha">
 						</div>
-						<button type="submit" class="btn btn-primary" onclick="makeSignIn()">Login</button>
+						<input type="submit" class="btn btn-primary" value="Login">
 					</form>
 				</div>
 				<div id="cadastro" style="display: none;">
 					<h2>Cadastro</h2>
-					<form>
+					<form action="#" method="post" id="formCadastro">
 						<div class="form-group">
 							<label for="nomeCompleto">Nome Completo</label>
 							<input type="text" class="form-control" id="nomeCompleto" placeholder="Seu nome completo">
@@ -59,7 +61,7 @@
 							<label for="confirmacaoSenha">Confirmar Senha</label>
 							<input type="password" class="form-control" id="confirmacaoSenha" placeholder="Confirme sua senha">
 						</div>
-						<button type="submit" class="btn btn-primary" onclick="makeSignUp()">Cadastrar</button>
+						<input type="submit" class="btn btn-primary" value="Cadastrar">
 					</form>
 				</div>
 			</div>
@@ -68,5 +70,12 @@
 		<footer>
 			<p>Talento Cloud- Grupo 5</p>
 		</footer>
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<p id="modal-message"></p>
+				<button id="okBtn">OK</button>
+			</div>
+		</div>
 	</body>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
 </html>
