@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<header>
+			<script src="../assets/scripts/login.js"></script>
 			<img src="../assets/img/soultech_all.png" alt="Logotipo da SoulTech">
 			
 			<nav>
@@ -21,8 +22,11 @@
 		</div>
 		</header>
 		<main>
-			<div class="container">
-				<div id="login">
+			<div class="container" >
+				<div>
+					<p>Faça <a href="javascript:void(0);" onclick="showSignIn()">login</a> ou <a href="javascript:void(0)" onclick="ShowSignUp()">inscreva-se</a></p>
+				</div>
+				<div id="login" style="display: none;">
 					<h2>Login</h2>
 					<form>
 						<div class="form-group">
@@ -33,10 +37,10 @@
 							<label for="loginPassword">Senha</label>
 							<input type="password" class="form-control" id="loginPassword" placeholder="Sua senha">
 						</div>
-						<button type="submit" class="btn btn-primary">Login</button>
+						<button type="submit" class="btn btn-primary" onclick="makeSignIn()">Login</button>
 					</form>
 				</div>
-				<div id="cadastro">
+				<div id="cadastro" style="display: none;">
 					<h2>Cadastro</h2>
 					<form>
 						<div class="form-group">
@@ -55,7 +59,7 @@
 							<label for="confirmacaoSenha">Confirmar Senha</label>
 							<input type="password" class="form-control" id="confirmacaoSenha" placeholder="Confirme sua senha">
 						</div>
-						<button type="submit" class="btn btn-primary">Cadastrar</button>
+						<button type="submit" class="btn btn-primary" onclick="makeSignUp()">Cadastrar</button>
 					</form>
 				</div>
 			</div>
