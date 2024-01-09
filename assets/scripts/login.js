@@ -1,6 +1,6 @@
 'use strict'
 
-function signIn() {
+function showSignIn() {
 	const signInDiv = document.getElementById('login')
 	const signUpDiv = document.getElementById('cadastro')
 
@@ -10,7 +10,7 @@ function signIn() {
 	} else signInDiv.style.display = 'block'
 }
 
-function signUp() {
+function ShowSignUp() {
 	const signInDiv = document.getElementById('login')
 	const signUpDiv = document.getElementById('cadastro')
 
@@ -20,6 +20,9 @@ function signUp() {
 	} else signUpDiv.style.display = 'block'
 }
 
-// function makeSignIn(){
-//     const
-// }
+function makeSignIn() {
+	const loginEmail = document.getElementById('loginEmail')
+	const loginPassword = document.getElementById('loginPassword')
+
+	if (loginEmail.innerHTML === '') exibirModal('Campo vazio')
+}
