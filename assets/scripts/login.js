@@ -35,45 +35,38 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (signInDiv.style.display === 'block') {
 			const loginEmail = document.getElementById('loginEmail')
 			const loginPassword = document.getElementById('loginPassword')
-			if (loginEmail.value || loginPassword.value === '') {
+			if (loginEmail.value === '' || loginPassword.value === '') {
 				exibirModal('Por favor, preencha todos os campos.')
 				return false
-			}
-
-			if (loginEmail.value === '') {
+			} else if (loginEmail.value === '') {
 				exibirModal('O campo Email não pode estar vazio!')
 				return false
-			}
-			if (loginPassword.value === '') {
+			} else if (loginPassword.value === '') {
 				exibirModal('O campo Senha não pode estar vazio!')
 				return false
-			}
+			} else return true
 		} else if (signUpDiv.style.display === 'block') {
 			const nomeCompleto = document.getElementById('nomeCompleto')
 			const cadastroEmail = document.getElementById('cadastroEmail')
 			const cadastroPassword = document.getElementById('cadastroPassword')
 			const confirmacaoSenha = document.getElementById('confirmacaoSenha')
 
-			if (nomeCompleto.value || cadastroEmail.value || cadastroPassword.value || confirmacaoSenha.value === '') {
+			if (nomeCompleto.value === '' || cadastroEmail.value === '' || cadastroPassword.value === '' || confirmacaoSenha.value === '') {
 				exibirModal('Por favor, preencha todos os campos.')
 				return false
-			}
-			if (nomeCompleto.value === '') {
+			} else if (nomeCompleto.value === '') {
 				exibirModal('O campo Email não pode estar vazio!')
 				return false
-			}
-			if (cadastroEmail.value === '') {
+			} else if (cadastroEmail.value === '') {
 				exibirModal('O campo Senha não pode estar vazio!')
 				return false
-			}
-			if (cadastroPassword.value === '') {
+			} else if (cadastroPassword.value === '') {
 				exibirModal('O campo Senha não pode estar vazio!')
 				return false
-			}
-			if (confirmacaoSenha.value === '') {
+			} else if (confirmacaoSenha.value === '') {
 				exibirModal('O campo Senha não pode estar vazio!')
 				return false
-			}
+			} else return true
 		} else return true
 	}
 })
