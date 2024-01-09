@@ -4,8 +4,11 @@
 }
 
 body {
+    position: relative;
     background-color: #c2d0e2;
     font-family: Arial, sans-serif;
+    min-height: 100vh;
+
 }
    
 header {
@@ -50,6 +53,7 @@ main {
     margin-left: 1rem;
     margin-top: 1rem;
     justify-content: space-around;
+    padding-bottom: 60px;
 }
 
 aside {
@@ -113,6 +117,12 @@ article footer img {
 
 article footer span {
     color: #212529;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 footer p{
@@ -281,6 +291,7 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 section {
@@ -306,6 +317,7 @@ section {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    flex-direction: row-reverse;
 }
 
 .body-section > div {
@@ -316,10 +328,10 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-img {
+/* img {
     max-width: 100%;
     height: auto;
-}
+} */
 
 .descricao {
     margin-top: 10px;
@@ -341,4 +353,11 @@ img {
 
 .body-section a:hover {
     text-decoration: underline;
+}
+
+.img-publicacao {
+    width: 100%; /* A imagem não será maior que o contêiner pai */
+    height: auto; /* Mantém a proporção original da imagem */
+    display: block; /* Remove espaços em branco indesejados ao redor da imagem */
+    border-radius: 5px; /* Adiciona bordas arredondadas, se desejar */
 }
