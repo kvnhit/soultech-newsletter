@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const publicacoes = JSON.parse(localStorage.getItem('publicacoes')) || [];
     const paginaAtual = determinarPaginaAtual();
-    publicacoes.forEach(item => {
+    const publicacoesOrdenadas = publicacoes.sort((a, b) => b.id - a.id);
+    publicacoesOrdenadas.forEach(item => {
         switch (item.tipo) {
             case 'noticia':
                 if (paginaAtual === 'noticias') {
@@ -29,7 +30,7 @@ function adicionarNoticiaNaPagina(noticia, containerSelector) {
     if (container) {
         const divNoticia = document.createElement('div');
         divNoticia.innerHTML = `
-            <a href="publicacoes/publicacao-aberta.html?id=${noticia.id}">
+            <a href="publicacao-aberta.html?id=${noticia.id}">
                 <img src="${noticia.imagem}" alt="${noticia.titulo}" class="img-publicacao">
                 <div class="descricao">
                     <p>${noticia.descricao}</p>
@@ -47,7 +48,7 @@ function adicionarArtigoNaPagina(artigo, containerSelector) {
     if (container) {
         const divArtigo = document.createElement('div');
         divArtigo.innerHTML = `
-            <a href="publicacoes/publicacao-aberta.html?id=${artigo.id}">
+            <a href="publicacao-aberta.html?id=${artigo.id}">
                 <img src="${artigo.imagem}" alt="${artigo.titulo}" class="img-publicacao">
                 <div class="descricao">
                     <p>${artigo.descricao}</p>
@@ -65,7 +66,7 @@ function adicionarTutorialNaPagina(tutorial, containerSelector) {
     if (container) {
         const divTutorial = document.createElement('div');
         divTutorial.innerHTML = `
-            <a href="publicacoes/publicacao-aberta.html?id=${tutorial.id}">
+            <a href="publicacao-aberta.html?id=${tutorial.id}">
                 <img src="${tutorial.imagem}" alt="${tutorial.titulo}" class="img-publicacao">
                 <div class="descricao">
                     <p>${tutorial.descricao}</p>
