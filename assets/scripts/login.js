@@ -133,7 +133,7 @@ function realizarLogin() {
 		usuarioEncontrado.logado = true;
 		localStorage.setItem('usuarios', JSON.stringify(usuarios));
 		alert('Login realizado com sucesso!');
-		window.location.href = 'home.html';
+		window.location.href = '../index.html';
 	} else {
 	  	alert('Email ou senha incorretos. Por favor, tente novamente.');
 	}

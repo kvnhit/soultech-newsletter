@@ -135,11 +135,46 @@ footer p{
 }
 
 #nova-publicacao {
+    width: 800px;
     background-color: #ffffff;
     padding: 20px;
+    padding-right: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
+}
+
+#nova-publicacao h1 {
+text-align: center;
+}
+
+#nova-publicacao label,
+#nova-publicacao input{
+width: 40%;
+display: block;
+margin-bottom: 10px;
+}
+
+#nova-publicacao select{
+width: 20%;
+display: block;
+margin-bottom: 10px;
+}
+
+#nova-publicacao textarea {
+width: 100%;
+display: block;
+margin-bottom: 10px;
+}
+
+#nova-publicacao textarea {
+height: 200px;
+}
+
+#nova-publicacao input[type="submit"] {
+width: 200px;
+margin: 0 auto;
+display: block;
 }
 
 form {
