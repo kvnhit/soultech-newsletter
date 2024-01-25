@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    carregarPublicacoesNoLocalStorage();
     const publicacoes = JSON.parse(localStorage.getItem('publicacoes')) || [];
     const noticias = publicacoes.filter(item => item.tipo === 'noticia').slice(-3);
     const noticiasBodySection = document.querySelector('.noticias .body-section');
@@ -55,3 +56,27 @@ function adicionarTutorialNaPagina(tutorial, container) {
     `;
     container.appendChild(divTutorial);
 }
+
+
+function carregarPublicacoesNoLocalStorage() {
+    if (!localStorage.getItem('publicacoesCarregadas')) {
+      const urlPublicacoes = '../assets/scripts/publicacoes.json';
+      fetch(urlPublicacoes)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Erro HTTP! Código: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(publicacoes => {
+          localStorage.setItem('publicacoes', JSON.stringify(publicacoes));
+          console.log('Dados carregados no localStorage com sucesso!');
+          localStorage.setItem('publicacoesCarregadas', 'true');
+        })
+        .catch(error => {
+          console.error('Erro ao carregar o arquivo publicacoes.json:', error);
+        });
+    } else {
+      console.log('Os dados já foram carregados anteriormente.');
+    }
+  }
