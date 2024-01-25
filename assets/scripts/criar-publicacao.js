@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const titulo = document.getElementById('titulo').value;
             const tipo = document.getElementsByName('tipo-publicacao')[0].value;
             const descricao = document.getElementById('descricao').value;
-            const publicacao = document.getElementById('publicacao').value;
+            const publicacao = document.getElementById('publicacao').value.replace(/\n/g, '<br>');
             const imagem = document.getElementById('imagem').files[0];
             let id = parseInt(localStorage.getItem('id')) || 0;
             id++;
