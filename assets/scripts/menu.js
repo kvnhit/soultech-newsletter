@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (usuarioLogado) {
       usuarioLogado.logado = false;
       localStorage.setItem('usuarios', JSON.stringify(usuarios));
-      window.location.href = 'index.html';
+      window.location.href = '../index.html';
     }
   }
   

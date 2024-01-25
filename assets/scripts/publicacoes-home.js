@@ -44,7 +44,7 @@ function exibirPublicacoes(publicacoes, containerSelector) {
 function adicionarNoticiaNaPagina(noticia, container) {
     const divNoticia = document.createElement('div');
     divNoticia.innerHTML = `
-        <a href="publicacoes/publicacao-aberta.html?id=${noticia.id}">
+        <a href="view/publicacoes/publicacao-aberta.html?id=${noticia.id}">
             <img src="${noticia.imagem}" alt="${noticia.titulo}" class="img-publicacao">
             <div class="descricao">
                 <p>${noticia.descricao}</p>
@@ -57,7 +57,7 @@ function adicionarNoticiaNaPagina(noticia, container) {
 function adicionarArtigoNaPagina(artigo, container) {
     const divArtigo = document.createElement('div');
     divArtigo.innerHTML = `
-        <a href="publicacoes/publicacao-aberta.html?id=${artigo.id}">
+        <a href="view/publicacoes/publicacao-aberta.html?id=${artigo.id}">
             <img src="${artigo.imagem}" alt="${artigo.titulo}" class="img-publicacao">
             <div class="descricao">
                 <p>${artigo.descricao}</p>
@@ -70,7 +70,7 @@ function adicionarArtigoNaPagina(artigo, container) {
 function adicionarTutorialNaPagina(tutorial, container) {
     const divTutorial = document.createElement('div');
     divTutorial.innerHTML = `
-        <a href="publicacoes/publicacao-aberta.html?id=${tutorial.id}">
+        <a href="view/publicacoes/publicacao-aberta.html?id=${tutorial.id}">
             <img src="${tutorial.imagem}" alt="${tutorial.titulo}" class="img-publicacao">
             <div class="descricao">
                 <p>${tutorial.descricao}</p>
