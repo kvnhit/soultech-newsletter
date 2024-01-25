@@ -1,21 +1,45 @@
 document.addEventListener('DOMContentLoaded', function () {
+    carregarPublicacoesNoLocalStorage();
+    carregarUsuariosNoLocalStorage();
+
     const publicacoes = JSON.parse(localStorage.getItem('publicacoes')) || [];
-    const noticias = publicacoes.filter(item => item.tipo === 'noticia').slice(-3);
-    const noticiasBodySection = document.querySelector('.noticias .body-section');
-    noticias.forEach(noticia => {
-        adicionarNoticiaNaPagina(noticia, noticiasBodySection);
-    });
-    const artigos = publicacoes.filter(item => item.tipo === 'artigo').slice(-3);
-    const artigosBodySection = document.querySelector('.artigos .body-section');
-    artigos.forEach(artigo => {
-        adicionarArtigoNaPagina(artigo, artigosBodySection);
-    });
-    const tutoriais = publicacoes.filter(item => item.tipo === 'tutorial').slice(-3);
-    const tutoriaisBodySection = document.querySelector('.tutoriais .body-section');
-    tutoriais.forEach(tutorial => {
-        adicionarTutorialNaPagina(tutorial, tutoriaisBodySection);
-    });
+    const noticias = filtrarEOrdenarPublicacoes(publicacoes, 'noticia', 3);
+    const artigos = filtrarEOrdenarPublicacoes(publicacoes, 'artigo', 3);
+    const tutoriais = filtrarEOrdenarPublicacoes(publicacoes, 'tutorial', 3);
+
+    exibirPublicacoes(noticias, '.noticias .body-section');
+    exibirPublicacoes(artigos, '.artigos .body-section');
+    exibirPublicacoes(tutoriais, '.tutoriais .body-section');
 });
+
+function filtrarEOrdenarPublicacoes(publicacoes, tipo, quantidade) {
+    const publicacoesFiltradas = publicacoes.filter(item => item.tipo === tipo);
+    const publicacoesOrdenadas = publicacoesFiltradas.sort((a, b) => b.id - a.id);
+    return publicacoesOrdenadas.slice(0, quantidade);
+}
+
+function exibirPublicacoes(publicacoes, containerSelector) {
+    const container = document.querySelector(containerSelector);
+    if (container) {
+        publicacoes.forEach(publicacao => {
+            switch (publicacao.tipo) {
+                case 'noticia':
+                    adicionarNoticiaNaPagina(publicacao, container);
+                    break;
+                case 'artigo':
+                    adicionarArtigoNaPagina(publicacao, container);
+                    break;
+                case 'tutorial':
+                    adicionarTutorialNaPagina(publicacao, container);
+                    break;
+                default:
+                    console.error('Tipo de publicação não reconhecido:', publicacao.tipo);
+            }
+        });
+    } else {
+        console.error('Container não encontrado:', containerSelector);
+    }
+}
 
 function adicionarNoticiaNaPagina(noticia, container) {
     const divNoticia = document.createElement('div');
@@ -54,4 +78,51 @@ function adicionarTutorialNaPagina(tutorial, container) {
         </a>
     `;
     container.appendChild(divTutorial);
+}
+
+
+function carregarPublicacoesNoLocalStorage() {
+    if (!localStorage.getItem('publicacoesCarregadas')) {
+      const urlPublicacoes = '../assets/scripts/publicacoes.json';
+      fetch(urlPublicacoes)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Erro HTTP! Código: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(publicacoes => {
+          localStorage.setItem('publicacoes', JSON.stringify(publicacoes));
+          console.log('Dados carregados no localStorage com sucesso!');
+          localStorage.setItem('publicacoesCarregadas', 'true');
+        })
+        .catch(error => {
+          console.error('Erro ao carregar o arquivo publicacoes.json:', error);
+        });
+    } else {
+      console.log('Os dados já foram carregados anteriormente.');
+    }
+}
+
+function carregarUsuariosNoLocalStorage() {
+    if (!localStorage.getItem('usuariosCarregadas')) {
+      const urlUsuarios = '../assets/scripts/usuarios.json';
+      fetch(urlUsuarios)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Erro HTTP! Código: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(usuarios => {
+          localStorage.setItem('usuarios', JSON.stringify(usuarios));
+          console.log('Dados carregados no localStorage com sucesso!');
+          localStorage.setItem('usuariosCarregadas', 'true');
+        })
+        .catch(error => {
+          console.error('Erro ao carregar o arquivo usuarios.json:', error);
+        });
+    } else {
+      console.log('Os dados já foram carregados anteriormente.');
+    }
 }

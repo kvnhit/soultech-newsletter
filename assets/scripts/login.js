@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('formLogin').addEventListener('submit', function (event) {
 		event.preventDefault()
 		if (validarFormulario()) {
-			alert('Tudo certo!')
+			realizarLogin();
 		}
 	})
 	document.getElementById('formCadastro').addEventListener('submit', function (event) {
 		event.preventDefault()
 		if (validarFormulario()) {
-			alert('Tudo certo!')
+			cadastrarUsuario();
 		}
 	})
 
@@ -93,68 +93,50 @@ function ShowSignUp() {
 	} else signUpDiv.style.display = 'block'
 }
 
-function login() {
-	const email = document.getElementById('loginEmail').value
-	const password = document.getElementById('loginPassword').value
+function cadastrarUsuario() {
+	const nomeCompleto = document.getElementById('nomeCompleto').value;
+	const email = document.getElementById('cadastroEmail').value;
+	const senha = document.getElementById('cadastroPassword').value;
+	const confirmacaoSenha = document.getElementById('confirmacaoSenha').value;
+  
+	if (senha !== confirmacaoSenha) {
+	  alert('As senhas não coincidem. Por favor, digite novamente.');
+	  return;
+	}
+  
+	const usuario = {
+	  nomeCompleto,
+	  email,
+	  senha,
+	  status: 'usuario',
+	  logado: false,
+	};
 
-	const user = users.find(u => u.email === email)
+	const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+  
+	if (usuarios.some(u => u.email === usuario.email)) {
+	  alert('Este e-mail já está cadastrado. Por favor, use outro e-mail.');
+	  return;
+	}
+	usuarios.push(usuario);
+	localStorage.setItem('usuarios', JSON.stringify(usuarios));
+	alert('Cadastro realizado com sucesso!');
+	document.getElementById('formCadastro').reset();
+}
 
-	if (user && user.password === password) {
-		alert('Login bem-sucedido!')
-
-		localStorage.setItem('usuarioLogado', JSON.stringify(user))
-
-		window.location.href = '../view/home.html'
+function realizarLogin() {
+	const email = document.getElementById('loginEmail').value;
+	const senha = document.getElementById('loginPassword').value;
+	const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+	const usuarioEncontrado = usuarios.find(u => u.email === email);
+	if (usuarioEncontrado && usuarioEncontrado.senha === senha) {
+		usuarioEncontrado.logado = true;
+		localStorage.setItem('usuarios', JSON.stringify(usuarios));
+		alert('Login realizado com sucesso!');
+		window.location.href = 'home.html';
 	} else {
-		alert('Usuário ou senha incorretos. Tente novamente.')
+	  	alert('Email ou senha incorretos. Por favor, tente novamente.');
 	}
 }
 
-function signup() {
-	const newUsername = document.getElementById('nomeCompleto').value
-	const newEmail = document.getElementById('cadastroEmail').value
-	const newPassword = document.getElementById('cadastroPassword').value
-	const newPasswordConfirmation = document.getElementById('confirmacaoSenha').value
-
-	const userExists = users.some(u => u.username === newUsername)
-
-	if (newPassword !== newPasswordConfirmation) alert('Senha não confere')
-
-	if (userExists) alert('Usuário já cadastrado. Escolha um nome de usuário diferente.')
-	else {
-		users.push({ username: newUsername, email: newEmail, password: newPassword })
-		alert('Cadastro bem-sucedido! Faça login agora.')
-	}
-}
-
-function welcomeUser(isLogged) {
-	debugger
-	let divLoginLink = document.getElementById('loginLink')
-	if (isLogged) {
-		let novoH2 = document.createElement('h2')
-
-		novoH2.textContent = 'Bem vindo'
-
-		divLoginLink.innerHTML = ''
-		divLoginLink.appendChild(novoH2)
-	}
-}
-
-function verificarStatusLogin() {
-	var usuarioLogado = localStorage.getItem('usuarioLogado')
-
-	if (usuarioLogado) {
-		var user = JSON.parse(usuarioLogado)
-		console.log('Usuário logado:', user)
-
-		exibirMensagemDeBoasVindas(user.username)
-	} else {
-		console.log('Nenhum usuário logado')
-
-		window.location.href = '../view/login.html'
-	}
-}
-
-function exibirMensagemDeBoasVindas(username) {
-	document.getElementById('mensagemBoasVindas').innerHTML = 'Bem-vindo, ' + username + '!'
-}
+  

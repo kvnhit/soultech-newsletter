@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const publicacaoId = urlParams.get('id');
     const publicacoes = JSON.parse(localStorage.getItem('publicacoes')) || [];
     const publicacaoSelecionada = publicacoes.find(item => item.id === parseInt(publicacaoId));
-    console.log(publicacaoSelecionada)
-    console.log(publicacoes.map(item => item.id));
     if (publicacaoSelecionada) {
         preencherDetalhesPublicacao(publicacaoSelecionada);
     }
