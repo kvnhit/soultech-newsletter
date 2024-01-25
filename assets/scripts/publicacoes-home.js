@@ -83,6 +83,8 @@ function adicionarTutorialNaPagina(tutorial, container) {
 
 function carregarPublicacoesNoLocalStorage() {
     if (!localStorage.getItem('publicacoesCarregadas')) {
+        //item para controle a prioridade dos ids
+        localStorage.setItem('id', 16);
       const urlPublicacoes = '../assets/scripts/publicacoes.json';
       fetch(urlPublicacoes)
         .then(response => {
