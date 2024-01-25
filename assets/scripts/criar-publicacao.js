@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    bloquearSelectNoticia();
     document.getElementById('descricao').addEventListener('input', function () {
         if (this.value.length > 255) {
             this.value = this.value.slice(0, 255);
@@ -72,5 +73,16 @@ document.addEventListener('DOMContentLoaded', function () {
             return false;
         }
         return true;
+    }
+
+    function bloquearSelectNoticia(){
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const usuarioLogado = usuarios.find(u => u.logado);
+        if (usuarioLogado.status != 'admin') {
+            const optionNoticia = document.querySelector('.option-noticia');
+            if (optionNoticia) {
+            optionNoticia.style.display = 'none';
+            }
+        }
     }
 });

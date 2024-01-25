@@ -2,26 +2,27 @@
 <html>
 	<head>
 		<title>Login / Cadastro</title>
-		<link rel="stylesheet" href="../assets/styles/styles.css" />
-		<link rel="stylesheet" href="../assets/styles/modal.css" />
+		<link rel="stylesheet" href="../assets/styles/styles.css">
+		<link rel="stylesheet" href="../assets/styles/modal.css">
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="../assets/scripts/login.js" defer></script>
+		<script src="../assets/scripts/menu.js" defer></script>
 	</head>
 	<body>
 		<header>
-			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-			<script src="../assets/scripts/login.js"></script>
-			<img src="../assets/img/soultech_all.png" alt="Logotipo da SoulTech" />
-
+		
+			<img src="../assets/img/soultech_all.png" alt="Logotipo da SoulTech">
+			
 			<nav>
 				<a href="home.html">Home</a>
 				<a href="publicacoes/noticias.html">Notícias</a>
 				<a href="publicacoes/tutoriais.html">Tutoriais</a>
 				<a href="publicacoes/artigos.html">Artigos</a>
-				<a href="criar-publicacao.html">Escreva</a>
+				<a href="criar-publicacao.html" id="linkEscreva">Escreva</a>
 				<a href="quem-somos.html">Quem Somos?</a>
 			</nav>
-			<div id="loginLink">
-				<a href="login.html">Cadastro / Login</a>
-			</div>
+		
+			<a href="login.html" id="cadastroLoginLink">Cadastro / Login</a>
 		</header>
 		<main>
 			<div class="container" id="">
