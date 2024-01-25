@@ -1,7 +1,7 @@
 [
     {
         "nomeCompleto": "Admin",
-        "email": "admin@auguadminsto.com",
+        "email": "admin@admin.com",
         "senha": "admin",
         "status": "admin",
         "logado": false
