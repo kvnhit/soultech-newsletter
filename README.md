@@ -6,6 +6,27 @@ Soul Tech é uma plataforma de código aberto dedicada à comunidade, criada par
 ## Objetivo
 O principal objetivo do Soul Tech é criar uma comunidade colaborativa onde os participantes possam contribuir com seu conhecimento e aprender com os outros. A plataforma é projetada para ser inclusiva, oferecendo um espaço para todos compartilharem suas ideias, independentemente de sua origem ou nível de expertise.
 
+## Imagens
+### Tela principal
+![index](https://github.com/ricardo-rals/TalentCloudAWS/assets/64266184/3c4daed6-340c-4a38-b23c-b2a8549f1962)
+
+### Publicações
+![publicacoes](https://github.com/ricardo-rals/TalentCloudAWS/assets/64266184/f72754f6-b526-4024-b81d-501e52c8d438)
+
+### Publicação Aberta
+![publicacao-aberta](https://github.com/ricardo-rals/TalentCloudAWS/assets/64266184/de10636e-f252-448c-b1dc-1bc709f01432)
+
+### Criar Publicação
+![criar-publicacao](https://github.com/ricardo-rals/TalentCloudAWS/assets/64266184/94f1b9bd-4f53-4218-bcb6-ab2087ab768c)
+
+### Login
+![login](https://github.com/ricardo-rals/TalentCloudAWS/assets/64266184/56aa8195-7eea-44bb-9445-1883ec099c23)
+
+### Cadastro
+![cadastro](https://github.com/ricardo-rals/TalentCloudAWS/assets/64266184/4697d1c5-e4f1-4d20-935b-ee1322996c7c)
+### Quem Somos
+![quem-somos](https://github.com/ricardo-rals/TalentCloudAWS/assets/64266184/79a401fd-a235-4218-bad9-5f51835daa7c)
+
 ## Funcionalidades Principais
 
 ### Registro de Usuário
