@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else return true
 	}
 })
+const users = [{ username: 'admin', email: 'admin@gmail.com', password: '1234' }]
+let isLogged = false
 
 function showSignIn() {
 	const signInDiv = document.getElementById('login')
@@ -89,4 +91,70 @@ function ShowSignUp() {
 		signInDiv.style.display = 'none'
 		signUpDiv.style.display = 'block'
 	} else signUpDiv.style.display = 'block'
+}
+
+function login() {
+	const email = document.getElementById('loginEmail').value
+	const password = document.getElementById('loginPassword').value
+
+	const user = users.find(u => u.email === email)
+
+	if (user && user.password === password) {
+		alert('Login bem-sucedido!')
+
+		localStorage.setItem('usuarioLogado', JSON.stringify(user))
+
+		window.location.href = '../view/home.html'
+	} else {
+		alert('Usuário ou senha incorretos. Tente novamente.')
+	}
+}
+
+function signup() {
+	const newUsername = document.getElementById('nomeCompleto').value
+	const newEmail = document.getElementById('cadastroEmail').value
+	const newPassword = document.getElementById('cadastroPassword').value
+	const newPasswordConfirmation = document.getElementById('confirmacaoSenha').value
+
+	const userExists = users.some(u => u.username === newUsername)
+
+	if (newPassword !== newPasswordConfirmation) alert('Senha não confere')
+
+	if (userExists) alert('Usuário já cadastrado. Escolha um nome de usuário diferente.')
+	else {
+		users.push({ username: newUsername, email: newEmail, password: newPassword })
+		alert('Cadastro bem-sucedido! Faça login agora.')
+	}
+}
+
+function welcomeUser(isLogged) {
+	debugger
+	let divLoginLink = document.getElementById('loginLink')
+	if (isLogged) {
+		let novoH2 = document.createElement('h2')
+
+		novoH2.textContent = 'Bem vindo'
+
+		divLoginLink.innerHTML = ''
+		divLoginLink.appendChild(novoH2)
+	}
+}
+
+function verificarStatusLogin() {
+	var usuarioLogado = localStorage.getItem('usuarioLogado')
+
+	if (usuarioLogado) {
+		var user = JSON.parse(usuarioLogado)
+		console.log('Usuário logado:', user)
+
+		exibirMensagemDeBoasVindas(user.username)
+	} else {
+		console.log('Nenhum usuário logado')
+
+		window.location.href = '../view/login.html'
+	}
+}
+
+function exibirMensagemDeBoasVindas(username) {
+	document.getElementById('mensagemBoasVindas').innerHTML = 'Bem-vindo, ' + username + '!'
 }
